@@ -1,0 +1,22 @@
+require javax.swing.JOptionPane;
+require io.regna.net.tcp.TCPAChannel;
+require io.regna.et.AcptChannel.Bridge;
+
+module sometest pkg net.regna {
+
+	val int PORT;
+	val TCPAChannel channel;
+	val const String MSG = "This is the message sent by me, the server. This is all I do!";
+
+	construct(int : port, int : timeout){
+		let PORT = port
+		let channel = TCPAChannel -> inst();
+		channel -> open(PORT, timeout);
+	}
+
+	def void serv{
+		val Bridge bridge = channel -> accept();
+		bridge -> transmit(MSG -> getBytes());
+	}
+
+}

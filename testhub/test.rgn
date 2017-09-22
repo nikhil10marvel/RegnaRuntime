@@ -1,0 +1,23 @@
+#compile "toimport.rgn";	## Compiles module sometest from toimport.rgn file.
+require javax.swing.JOptionPane;
+require net.regna.sometest;
+require io.regna.rt.Core;
+require io.regna.log.Logger;
+
+## This creates a new module in package net.regna
+## Packages are nothing but ways to organize your modules.
+module test pkg net.regna {
+	
+	## Just a test decalration
+	stval const String msg = "This is a constant! It holds this a sentence in it.";
+
+	stfc void main(args : String[]){
+		Core -> println("Okay starting popup...");
+		JOptionPane -> showMessageDialog(null, msg);
+		val const sometest SomeTest = sometest -> inst("What a program!");
+		Logger.runtime -> info("TEST", "somenonsense");
+		Thread -> sleep((long)1000);
+		Core.sysLog() -> info("TEST", "something else");
+	}
+
+}

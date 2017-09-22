@@ -1,0 +1,1 @@
+java -jar ./regnart_debug.jar %1 %2

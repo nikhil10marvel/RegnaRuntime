@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: librt.jar
+Main-Class: io.regna.runtime.Main
+
